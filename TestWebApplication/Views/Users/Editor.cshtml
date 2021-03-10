@@ -1,0 +1,25 @@
+﻿<form name="userForm" class="form" novalidate ng-submit="onSubmit()">
+    <fieldset>
+        <legend>&nbsp;{{title}}&nbsp;</legend>
+        <div class="data-row">
+            <label for="FirstName" class="label">First Name</label>
+            <input type="text" class="input" name="FirstName" id="FirstName" required ng-model="user.FirstName" maxlength="255"/>
+            <span ng-show="userForm.FirstName.$error.required">Required</span>
+        </div>
+        <div class="data-row">
+            <label for="LastName" class="label">Last Name</label>
+            <input type="text" class="input" name="LastName" id="LastName" required ng-model="user.LastName" maxlength="255" />
+            <span ng-show="userForm.LastName.$error.required">Required</span>
+        </div>
+        <div class="data-row">
+            <label for="Email" class="label">Email</label>
+            <input type="email" class="input" name="Email" id="Email" required ng-model="user.Email" maxlength="320"/>
+            <span ng-show="userForm.Email.$error.required">Required</span>
+            <span ng-show="userForm.Email.$error.email">Correct email, pls.</span>
+        </div>
+        <div class="btns">
+            <button class="btn" type="submit" ng-disabled="userForm.$invalid">{{title}}</button>
+            <button class="btn" type="button" ng-click="onCancel()">Cancel</button>
+        </div>
+    </fieldset>
+</form>
