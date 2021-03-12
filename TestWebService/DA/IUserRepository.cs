@@ -10,7 +10,7 @@
 
         Task<User> GetById(long id);
 
-        Task Save(User user);
+        Task<User> Save(User user);
 
         Task DeleteById(long id);
     }

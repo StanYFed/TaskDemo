@@ -32,7 +32,16 @@
         {
             builder.Register<IMapper>(_ => {
                 var config = new MapperConfiguration(cfg => {
-                    cfg.CreateMap<User, UserDto>().ReverseMap();
+                    cfg.CreateMap<User, UserDto>()
+                        .ForMember(dst => dst.Id, opts => opts.MapFrom(src => src.Id))
+                        .ForMember(dst => dst.FirstName, opts => opts.MapFrom(src => src.FirstName))
+                        .ForMember(dst => dst.LastName, opts => opts.MapFrom(src => src.LastName))
+                        .ForMember(dst => dst.Email, opts => opts.MapFrom(src => src.Email))
+                    .ReverseMap()
+                        .ForMember(dst => dst.Id, opts => opts.MapFrom(src => src.Id))
+                        .ForMember(dst => dst.FirstName, opts => opts.MapFrom(src => src.FirstName))
+                        .ForMember(dst => dst.LastName, opts => opts.MapFrom(src => src.LastName))
+                        .ForMember(dst => dst.Email, opts => opts.MapFrom(src => src.Email));
                 });
 
                 return new Mapper(config);

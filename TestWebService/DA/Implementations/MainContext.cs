@@ -6,6 +6,7 @@
     public class MainContext : DbContext
     {
         public MainContext() : base("name=MainContext") { }
+        public MainContext(string nameOrConnectionString) : base(nameOrConnectionString) { }
 
         public DbSet<Models.User> Users { get; set; }
 

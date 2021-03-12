@@ -33,7 +33,7 @@
             }
         }
 
-        public async Task Save(User user)
+        public async Task<User> Save(User user)
         {
             using (var context = this.dbContextFactory())
             {
@@ -62,6 +62,8 @@
                     context.Set<User>().Add(user);
                     await context.SaveChangesAsync();
                 }
+
+                return user;
             }
         }
 

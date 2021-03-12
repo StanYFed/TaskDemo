@@ -7,6 +7,7 @@
     {
         public static void Register(HttpConfiguration config)
         {
+            // TODO: Restrictions from config?
             var cors = new EnableCorsAttribute(origins: "*", headers: "*", methods: "*");
 
             config.EnableCors(cors);
